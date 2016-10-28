@@ -5,10 +5,10 @@
 Índice
 ==============================
 
-* [Conhecimentos básicos](#conhecimentos-básicos)
+* [Conhecimentos básicos](#conhecimentos-basicos)
 * [Nomenclatura](#nomenclatura)
 * [Classes.cs](#classes)
-* [Guideline de boas práticas](#guideline-de-boas-práticas)
+* [Guideline de boas práticas](#guideline-de-boas-praticas)
 * [Testes de unidade](#testes-de-unidade)
 
 Conhecimentos básicos
