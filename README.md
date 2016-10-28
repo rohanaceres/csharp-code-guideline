@@ -14,6 +14,18 @@
 Conhecimentos básicos
 ==============================
 
+Algumas leituras importantes, porque são conhecimentos fundamentais no dia a dia do desenvolvedor (por mais que algumas vezes el@ nem saiba disso).
+
+Decidi colocar esses itens (que irão ser complementados com o tempo), porque além de ser importante ter um código consistente lógicamente, legível e documentado, é importante entender alguns conceitos que estão implícitos no desenvolvimento. Você não precisa ser um expert em nenhuma dessas tecnologias e conceitos (será? talvez você precise), mas apenas entender basicamente como elas funcionam e de que forma ela impacta o seu trabalho.
+
+* [GRASP](https://en.wikipedia.org/wiki/GRASP_(object-oriented_design))
+* [SOLID](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design))
+* Alguns [protocolos de comunicação](https://pt.wikipedia.org/wiki/Protocolo_(ci%C3%AAncia_da_computa%C3%A7%C3%A3o)) básicos:
+    * [TCP/IP](https://en.wikipedia.org/wiki/Internet_protocol_suite)
+    * [HTTP](https://pt.wikipedia.org/wiki/Hypertext_Transfer_Protocol), [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2) e [HTTPS](https://pt.wikipedia.org/wiki/Hyper_Text_Transfer_Protocol_Secure)
+        - [REST](https://pt.wikipedia.org/wiki/REST)
+        - [SOAP](https://pt.wikipedia.org/wiki/SOAP)
+
 Nomenclatura
 ==============================
 
