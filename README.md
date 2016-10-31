@@ -51,7 +51,7 @@ Formatação
 
 :warning: _Sempre utilizar chaves, mesmo quando o corpo tiver apenas uma linha._
 
-Certo :+1:
+**Certo :+1:**:
 
 ```
 namespace SomeNamespace
@@ -73,7 +73,7 @@ namespace SomeNamespace
 }
 ```
 
-Errado :-1:
+**Errado :-1:**:
 
 ```
 namespace SomeNamespace {
@@ -107,7 +107,7 @@ Sempre utilizar o `this` para métodos, campos e propriedades da classe.
 
 A identação é feita com tabs e o espaçamento entre operadores deve ter um espaço em branco.
 
-Certo :+1:
+**Certo :+1:**:
 
 * `public sealed class SomeClass : ISomeClass`
 * `int sum = a + b`
@@ -116,7 +116,7 @@ Certo :+1:
 * `while (someBool == true);`
 * `for (int i = 0; i < 10; i++)`
 
-Errado :-1:
+**Errado :-1:**:
 
 * `public sealed class SomeClass:ISomeClass`
 * `int sum=a+b;`
