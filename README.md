@@ -265,7 +265,7 @@ Informação | Nome
 -- | --
 Time out em segundos | TimeOutInSeconds
 Expressão regular para CPF | CpfRegexPattern
-Valor _default_ para o número de tentativas de conexão | DefaultNumberOfConectionTries
+Valor _default_ para o número de tentativas de conexão | DefaultNumberOfConnectionTries
 
 :warning: _Se você possui muitas constantes relativas a um único assunto, considere utilizar um [arquivo de recurso](#arquivos-de-recurso)._
 
