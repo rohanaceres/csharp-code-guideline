@@ -186,7 +186,7 @@ Papel da variável | Nome certo :+1: | Nome errado :-1:
 -- | -- | --
 Modelo da entidade Student | `student`, `studentModel` | `s`, `sm`, `stdnt`
 `Decimal` que representa um valor financeiro | `amount` | `a`, ``
-Fazer café | `MakeCoffee()` | `CoffeeMachine()`
+Data e hora atual | `currentDateTime` | `dt`, `now`
 
 ## Propriedades
 
@@ -372,6 +372,7 @@ Classes
 
 Separei o corpo de um arquivo `.cs` como se fosse um XML, ou seja: 
 
+```
 <includes />
 <namespace>
     <class> 
@@ -391,7 +392,8 @@ Separei o corpo de um arquivo `.cs` como se fosse um XML, ou seja:
     </class>
     <private-extension-methods />
 </namespace> 
-        
+```
+
 :warning: _Todos os membros são ordenados seguindo a regra: `public`, `internal`, `private`._
 :warning: _Nunca deixar um membro da classe sem modificador de acesso!_
 
@@ -431,20 +433,54 @@ public sealed class SomeConnection : IDisposable
 Guideline de boas práticas
 ==============================
 
-## strings
-    . concatenação simples
-    . concatenação em loop
-        StringBuilder
+## Tipos nativos
 
-## tipos nativos
+Sempre utilizar os tipos nativos, e não seus respectivos _wrappers_.
 
-## var
+Certo :+1: | Errado :-1:
+--- | ---
+`string` | `String`
+`short` | `Int16`
+`ushort` | `UInt16`
+`int` | `Int32`
+`uint` | `UInt32`
+`long` | `Int64`
+`ulong` | `UInt64`
+`decimal` | `Decimal`
+
+## Strings
+
+### Concatenação simples
+
+A concatenação simples de strings deve ser feita com o método Format, por exemplo:
+
+```
+string message = string.Format("Olá, {0}!", client.Name);
+Console.WriteLine(message);
+``` 
+
+### Concatenação em loop
+
+Concatenações em loop e manipulação de muitas strings deve ser feita utilizando a classe `StringBuilder`. Através desse _wrapper_ é possível concatenar string de forma a não perder desempenho.
+
+Exemplo:
+
+```
+StringBuilder bookTitleBuilder = new StringBuilder();
+
+foreach (string currentEntry in bookTitles)
+{
+    bookTitleBuilder.Append(string.Format("{0:S};", currentEntry));
+}
+
+string concatBookTitles = bookTitleBuilder.ToString();
+```
+
+## `var`
+
+:warning: _Utilizar **somente** quando um valor literal for atribuído à variável e quando o escopo dessa variável `var` for bem pequeno. **Não utilizar em escopos ou métodos longos!**_
 
 ## boolean
-
-## if compacto
-
-## operações inline
 
 ## valores mágicos
 
