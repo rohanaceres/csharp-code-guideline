@@ -32,6 +32,125 @@ Decidi colocar esses itens (que irão ser complementados com o tempo), porque al
 Formatação
 ==============================
 
+## Chave
+
+**Sempre utilizar chave embaixo** em:
+
+* Namespaces
+* Classes
+* Métodos
+* _Getter_ e _setter_ (se houver implementação deles)
+* `if`, `else` e `if-else`
+* `do-while` e `while`
+* `for` e `foreach`
+
+**Utilizar chave em cima** em:
+
+* `if`, `else` e `if-else` **in-line**: se algum deles não for in-line, utilizar chave embaixo em todos.
+* _Getter_ e _setter_ **in-line**
+
+:warning: _Sempre utilizar chaves, mesmo quando o corpo tiver apenas uma linha._
+
+Certo :+1:
+
+```
+namespace SomeNamespace
+{
+    public sealed class SomeClass
+    {
+        public int SomeInt { get; set; }
+
+        public void SomeMethod ()
+        {
+            if (someBool == true) { return; }
+
+            for (int i = 0; i < 10; i++)
+            {
+                // Do something
+            }
+        }
+    }
+}
+```
+
+Errado :-1:
+
+```
+namespace SomeNamespace {
+    public sealed class SomeClass
+    {
+        public int SomeInt 
+        { 
+            get; 
+            set; 
+        }
+
+        public void SomeMethod ()
+        {
+            if (someBool == true) 
+                return; 
+
+            for (int i = 0; i < 10; i++)
+            {
+                // Do something
+            }
+        }
+    }
+}
+```
+
+## this
+
+Sempre utilizar o `this` para métodos, campos e propriedades da classe.
+
+## Espaçamento
+
+A identação é feita com tabs e o espaçamento entre operadores deve ter um espaço em branco.
+
+Certo :+1:
+
+* `public sealed class SomeClass : ISomeClass`
+* `int sum = a + b`
+* `public void SomeMethod (int a, double b)`
+* `if (someBool == true)`
+* `while (someBool == true);`
+* `for (int i = 0; i < 10; i++)`
+
+Errado :-1:
+
+* `public sealed class SomeClass:ISomeClass`
+* `int sum=a+b;`
+* `public void SomeMethod(int a,double b)`
+* `if(someBool)`
+* `while(someBool == true);`
+* `for (int i=0; i<10; i++)`
+
+## Chamadas em cadeia
+
+Alguns padrões de projeto utilizam a chamada de métodos encadeados como forma de produzir o output esperado. Alguns exemplos disso são:
+
+- LINQ
+- Builder
+
+Esse tipo de chamada deve ser feita separando cada método encadeado em linhas diferentes:
+
+Exemplo em chamada encadeada:
+
+```
+IEnumerable<SelectListItem> stores = database.Stores
+        .Where(store => store.CompanyID == curCompany.ID)
+        .Select(store => new SelectListItem { Value = store.Name, Text = store.ID });
+```
+
+Exemplo em query LINQ:
+
+```
+IEnumerable<SelectListItem> stores =
+        from store in database.Stores
+        where store.CompanyID == curCompany.ID
+        select new SelectListItem { Value = store.Name, Text = store.ID };
+```
+
 Nomenclatura
 ==============================
 
