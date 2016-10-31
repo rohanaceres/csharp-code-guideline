@@ -135,6 +135,18 @@ Quando a aplicação está esperando por uma interação do usuário | `WaitingF
 
 ## Constantes
 
+**Capitalização:** PascalCase
+
+Constantes devem ter um nome bem claro da informação que ela representa, por exemplo:
+
+Informação | Nome
+-- | --
+Time out em segundos | TimeOutInSeconds
+Expressão regular para CPF | CpfRegexPattern
+Valor _default_ para o número de tentativas de conexão | DefaultNumberOfConectionTries
+
+:warning: _Se você possui muitas constantes relativas a um único assunto, considere utilizar um [arquivo de recurso](#arquivos-de-recurso)._
+
 ## Enumeradores
 
 ## Extension method
@@ -174,32 +186,47 @@ Classes
 Guideline de boas práticas
 ==============================
 
-- strings
+## strings
     . concatenação simples
     . concatenação em loop
         StringBuilder
-- tipos nativos
-- var
-- boolean
-- if compacto
-- operações inline
-- valores mágicos
-- utilização de atributos
-- try catch
-- arquivo de recurso
-- numero de parâmetros enviados a um método
-- tamanho da linha
+
+## tipos nativos
+
+## var
+
+## boolean
+
+## if compacto
+
+## operações inline
+
+## valores mágicos
+
+## utilização de atributos
+
+## try catch
+
+## arquivos de recurso
+
+## numero de parâmetros enviados a um método
+
+## tamanho da linha
     . Pegar do joaozinho
-- sealed
-- Control flow
+
+## sealed
+
+## Control flow
     - for
     - foreach
     - while
     - do-while
     - if, else, else-if
     - switch
-- LINQ
-- argumento de evento
+
+## LINQ
+
+## argumento de evento
 
 Documentação
 ==============================
