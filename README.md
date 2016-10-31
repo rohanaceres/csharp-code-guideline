@@ -156,6 +156,16 @@ Nomenclatura
 
 Todos os nomes devem estar em inglês.
 
+## Siglas
+
+Siglas devem ser tratadas como palavras comuns, ou seja:
+
+Certo :+1: | Errado :-1:
+--- | ---
+clientCpf | clientCPF
+sqlQuery | SQLQuery
+myDB | myDb
+
 ## Métodos
 
 **Capitalização:** PascalCase
@@ -250,10 +260,10 @@ Exemplos:
     
 Ação | Nome do _trigger_ | Nome da _action_ 
 --- | --- | ---
-Quando algo for logado | `Logged` | `OnLogged` ou `OnSendLogsToServerWhenLogged`
-Quando uma propriedade foi alterada | `PropertyChanged` | `OnPropertyChanged` ou `OnValidateValueWhenPropertyChanged` 
-Antes de uma atualização de sistema | `BeforeSystemUpdate` | `OnBeforeSystemUpdate` ou `OnBackupBeforeSystemUpdate`
-Quando a aplicação está esperando por uma interação do usuário | `WaitingForUserConfirmation`| `OnWaitingForUserConfirmation` ou `OnShowMessageIfWaitingForUserConfirmation`
+Quando algo for logado | `Logged` | `OnLogged()` ou `OnSendLogsToServerWhenLogged()`
+Quando uma propriedade foi alterada | `PropertyChanged` | `OnPropertyChanged()` ou `OnValidateValueWhenPropertyChanged()` 
+Antes de uma atualização de sistema | `BeforeSystemUpdate` | `OnBeforeSystemUpdate()` ou `OnBackupBeforeSystemUpdate()`
+Quando a aplicação está esperando por uma interação do usuário | `WaitingForUserConfirmation()`| `OnWaitingForUserConfirmation` ou `OnShowMessageIfWaitingForUserConfirmation()`
 
 ## Constantes
 
