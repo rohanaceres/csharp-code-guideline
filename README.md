@@ -6,6 +6,7 @@
 ==============================
 
 * [Conhecimentos básicos](#conhecimentos-básicos)
+* [Formatação](#formatação)
 * [Nomenclatura](#nomenclatura)
 * [Classes.cs](#classes)
 * [Guideline de boas práticas](#guideline-de-boas-práticas)
@@ -28,6 +29,8 @@ Decidi colocar esses itens (que irão ser complementados com o tempo), porque al
 * [UpperCamelCase](http://wiki.c2.com/?UpperCamelCase) ou [PascalCase](http://wiki.c2.com/?PascalCase)
 * [lowerCamelCase](http://wiki.c2.com/?LowerCamelCase) _ou apenas camelCase_
 
+Formatação
+==============================
 
 Nomenclatura
 ==============================
@@ -149,39 +152,162 @@ Valor _default_ para o número de tentativas de conexão | DefaultNumberOfConect
 
 ## Enumeradores
 
+**Capitalização:** PascalCase
+
+O nome da classe deve ser composto por um dos padrões abaixo: 
+
+* Objetivo do enum + **Code**
+* Objetivo do enum + **Type**
+
+Exemplos:
+
+Objetivo do enum | Nome
+--- | ---
+Tipos de transação financeira | `TransactionType`
+Cores | `ColorCode`
+Tipos de protocolo de comunicação | `CommunicationType`
+Status de algum serviço ou aplicação | `ApplicationStatusCode`
+
+Devem possuir sempre um valor **Undefined = 0**, motivos para isso:
+
+* Evitar que o valor de um `enum` seja usando sem que o valor dele seja definido
+* Evitar que o valor default do enum (`default(EnumName)`)
+
+Exemplo prático:
+
+```
+public enum ColorCode
+{
+    Undefined = 0,
+    White,
+    Red,
+    Green,
+    Blue,
+    Black
+}
+```
+
 ## Extension method
 
+**Capitalização:** PascalCase
+
+Se o `extension method` for utilizado apenas em uma classe, colocar ele no mesmo arquivo que a classe a ser complementada. Se ele for para ser utilizado globalmente, coloque na pasta raiz da classe a ser complementada. 
+
+:warning: _Não crie uma pasta **Extension** e coloque todos os `extension methods` lá._
+
+Devem ser nomeados como: 
+
+* Nome da classe a ser extendida + **Extension**
+
+Exemplo prático:
+
+```
+public static class IntExtension
+{
+    public static int Sum (this int a, int b)
+    {
+        return a + b;
+    }
+    public static int Subtract (this int a, int b)
+    {
+        return a - b;
+    }
+    public static int Multiply (this int a, int b)
+    {
+        return a * b;
+    }
+    public static double Divide (this int a, int b)
+    {
+        return a / b;
+    }
+}
+```
+
 ## Prefixos ou sufixos especiais
-    . pages
-    . resources
-    . abstract
-    . interfaces
+
+Para tipos de arquivos, utilizar: **nome da classe + nome do arquivo**. 
+
+Exemplos:
+
+* `Page`: função + **Page**. Exemplo: `RegisterPage`
+* `Resource`: função + **Resource**. Exemplo: `RegularExpressionResources`.
+* `UserControl`: função + **UserControl**. Exemplo: `AdvancedSettingsUserControl`.
+
+Para `interface` e `abstract`:
+
+* Classes abstratas: **Abstract** + nome da classe. Exemplo: `AbstractPaymentService`.
+* Interfaces: **I** + nome da classe. Exemplo: `IPaymentService`.
 
 Classes
 ==============================
 
-- Algumas definições
-    - Membro: todos os métodos, construtores, propriedades e campos de uma classe.
-- Estrutura da classe
-    - partes de um .cs
-        . includes
-        . namespace
-            . constantes
-            . campos estáticas
-            . propriedades estáticas
-            . campos - se for membro de propriedade full, colocar o membro privado imediatamente acima da propriedade correspondente.
-            . propriedades de interface
-            . propriedades 
-            . construtor
-            . métodos estáticos 
-            . métodos de interface
-            . métodos da classe
-        . extension methods que serão utilizados SOMENTE naquela classe
-        (!) Todos os membros são ordenados seguindo a regra - public, internal, private
-        (!) Nunca deixar um membro da classe sem modificador de acesso!
-- Ciclo de vida da classe
-- Generics e tipos genericos
-- Regions
+**Capitalização:** PascalCase
+
+## Algumas definições
+
+**Membro**: todos os métodos, construtores, propriedades e campos de uma classe.
+
+## Estrutura da classe
+
+### Partes de um `.cs`
+
+Separei o corpo de um arquivo `.cs` como se fosse um XML, ou seja: 
+
+<includes />
+<namespace>
+    <class> 
+        <constants />
+        <static-fields />
+        <static-properties />
+        <interface-properties />
+        <full-properties>
+            <private-field />
+            <property />
+        </full-property>
+        <properties />
+        <constructors />
+        <static-methods />
+        <interface-methods />
+        <methods />
+    </class>
+    <private-extension-methods />
+</namespace> 
+        
+:warning: _Todos os membros são ordenados seguindo a regra: `public`, `internal`, `private`._
+:warning: _Nunca deixar um membro da classe sem modificador de acesso!_
+
+### Ciclo de vida da classe
+
+Se a classe tiver um ciclo de vida bem definido, por exemplo, uma classe de é inicializada, faz alguma ação e depois algum tipo de fechamento, é interessante organizar os métodos de acordo com esse ciclo de vida.
+
+Por exemplo, imagine uma classe `SomeConnection` que tem como objetivo verificar se é possível conectar, estabelecer conexão, fechar conexão e liberar memória. Para tanto, é interessante que a ordem dos métodos no arquivo da classe estejam organizadas seguindo esse fluxo. Ou seja:
+
+```
+public sealed class SomeConnection : IDisposable
+{
+    public bool CanConnect ()
+    {
+        // Implementation...
+    }
+    public void Connect ()
+    {
+        // Implementation...
+    }
+    public void Disconnect ()
+    {
+        // Implementation...
+    }
+    public void Dispose()
+    {
+        // Free memmory...
+        GC.SuppressFinalize(this);
+    }
+}
+```
+
+### Regions
+
+:warning: _**Evitar ao máximo utilizar!** Regions escondem complexidade._
 
 Guideline de boas práticas
 ==============================
