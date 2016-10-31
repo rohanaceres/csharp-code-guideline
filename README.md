@@ -42,7 +42,7 @@ Os métodos devem expressar uma ação, ou seja, devem ser verbos ou começar co
 Exemplos:
 
 Ação | Certo :+1: | Errado :-1:
--- | -- | --
+--- | --- | ---
 Envia um email | `SendEmail()`, `Send()` | `EmailSender()`
 Inicializar alguma coisa | `Initialize()`, `Setup()` | `Initialization()`, `Bootstrapper()`
 Fazer café | `MakeCoffee()` | `CoffeeMachine()`
@@ -51,9 +51,9 @@ Fazer café | `MakeCoffee()` | `CoffeeMachine()`
 
 **Capitalização:** camelCase
 
-_O escopo de variáveis ​​locais devem ser mantidos a um mínimo (Effective Java Item 29). Ao fazer isso, você aumenta a legibilidade e manutenção de seu código e reduzir a probabilidade de erro. Cada variável deve ser declarada no bloco mais interno que inclui todos os usos da variável._
+_O escopo de variáveis locais devem ser mantidos a um mínimo (Effective Java Item 29). Ao fazer isso, você aumenta a legibilidade e manutenção de seu código e reduzir a probabilidade de erro. Cada variável deve ser declarada no bloco mais interno que inclui todos os usos da variável._
 
-_As variáveis ​​locais devem ser declaradas no momento da sua primeira utilização. Quase todas as declarações de variáveis locais devem conter um inicializador. Se você ainda não tem informações suficientes para inicializar uma variável de forma sensata, você deve adiar a declaração até que tenha as informações necessárias para isso._ - ([Android code style guidelines](https://source.android.com/source/code-style.html#limit-variable-scope))
+_As variáveis locais devem ser declaradas no momento da sua primeira utilização. Quase todas as declarações de variáveis locais devem conter um inicializador. Se você ainda não tem informações suficientes para inicializar uma variável de forma sensata, você deve adiar a declaração até que tenha as informações necessárias para isso._ - ([Android code style guidelines](https://source.android.com/source/code-style.html#limit-variable-scope))
 
 Apesar desse trecho ter sido retirado de um artigo referente ao Java, se encaixa perfeitamente no contexto de qualquer linguagem, porque é referente à legibilidade do código. 
 
@@ -61,9 +61,9 @@ Variáveis locais, como qualquer outro membro da classe, devem ter um nome claro
 Exemplo:
 
 Papel da variável | Nome certo :+1: | Nome errado :-1:
--- | -- | --
+--- | --- | ---
 Modelo da entidade Student | `student`, `studentModel` | `s`, `sm`, `stdnt`
-`Decimal` que representa um valor financeiro | `amount` | `a`, ``
+`Decimal` que representa um valor financeiro | `amount` | `a`, `amt`
 Fazer café | `MakeCoffee()` | `CoffeeMachine()`
 
 ## Propriedades
@@ -92,7 +92,7 @@ Devem ser evitados. Em projetos como WPF e Windows Forms, os _code behinds_ util
 Exemplos:
 
 Tipo do componente visual | Nome 
--- | -- 
+--- | --- 
 Label | `uxLblClientName` 
 Button | `uxBtnRegister` 
 TextBox | `uxTbxClientName` 
@@ -114,7 +114,7 @@ Os `EventHandler`s devem ter nome da ação a ser feita.
 Exemplos:
 
 Ação | Nome 
--- | -- 
+--- | --- 
 Quando algo for logado | `Logged` 
 Quando uma propriedade foi alterada | `PropertyChanged` 
 Antes de uma atualização de sistema | `AfterSystemUpdate` 
@@ -127,7 +127,7 @@ Os métodos devem ter o nome composto por: **On + nome do _trigger_** (ação si
 Exemplos:  
     
 Ação | Nome do _trigger_ | Nome da _action_ 
--- | -- | --
+--- | --- | ---
 Quando algo for logado | `Logged` | `OnLogged` ou `OnSendLogsToServerWhenLogged`
 Quando uma propriedade foi alterada | `PropertyChanged` | `OnPropertyChanged` ou `OnValidateValueWhenPropertyChanged` 
 Antes de uma atualização de sistema | `BeforeSystemUpdate` | `OnBeforeSystemUpdate` ou `OnBackupBeforeSystemUpdate`
@@ -140,7 +140,7 @@ Quando a aplicação está esperando por uma interação do usuário | `WaitingF
 Constantes devem ter um nome bem claro da informação que ela representa, por exemplo:
 
 Informação | Nome
--- | --
+--- | ---
 Time out em segundos | TimeOutInSeconds
 Expressão regular para CPF | CpfRegexPattern
 Valor _default_ para o número de tentativas de conexão | DefaultNumberOfConectionTries
