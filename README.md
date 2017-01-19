@@ -279,6 +279,26 @@ Valor _default_ para o número de tentativas de conexão | DefaultNumberOfConnec
 
 :warning: _Se você possui muitas constantes relativas a um único assunto, considere utilizar um [arquivo de recurso](#arquivos-de-recurso)._
 
+:warning: _Sempre utilize o nome da classe ao utilizar uma constante, para facilitar a leitura e_ code review _do código. Exemplo:_
+
+```
+public sealed class Dog 
+{
+    public const int NumberOfPaws = 4;
+
+    // Some dog code ...
+
+    public void Walk ()
+    {
+        for (int i = 0; i < Dog.NumberOfPaws; i++)
+        {
+            this.Move(this.Paws[i]);
+        }
+    }
+}
+```
+
+
 ## Enumeradores
 
 **Capitalização:** PascalCase
@@ -287,14 +307,15 @@ O nome da classe deve ser composto por um dos padrões abaixo:
 
 * Objetivo do enum + **Code**
 * Objetivo do enum + **Type**
+* Objetivo do enum + **Mode**
 
 Exemplos:
 
 Objetivo do enum | Nome
 --- | ---
-Tipos de transação financeira | `TransactionType`
+Tipos de transação financeira | `TransactionType`, `TransactionMode`
 Cores | `ColorCode`
-Tipos de protocolo de comunicação | `CommunicationType`
+Tipos de protocolo de comunicação | `CommunicationType`, `CommunicationMode`
 Status de algum serviço ou aplicação | `ApplicationStatusCode`
 
 Devem possuir sempre um valor **Undefined = 0**, motivos para isso:
@@ -472,7 +493,7 @@ Certo :+1: | Errado :-1:
 
 ### Concatenação simples
 
-A concatenação simples de strings deve ser feita com o método Format, por exemplo:
+A concatenação simples de strings deve ser feita com o método `Format()`, por exemplo:
 
 ```
 string message = string.Format("Olá, {0}!", client.Name);
@@ -502,20 +523,85 @@ string concatBookTitles = bookTitleBuilder.ToString();
 
 ## boolean
 
+Sempre nomear como:
+
+* **Is**: `IsSuccess`, `IsRestProtocol` ou `IsSerializable`;
+* **Was**: `WasCancelled`, `WasCaptured` ou `WasSerialized`;
+* **Has**: `HasAmountToCancel`, `HasContent` ou `HasHttpStatusError`.
+
+É uma boa prática criar propriedades `bool` apenas para facilitar acesso à um dado de forma simplificada. Por exemplo, ao validar se a resposta de um servidor qualquer foi sucesso, é interessante fazer a validação de forma simplificada, como:
+
+```
+public sealed SomeResponse
+{
+    // lot of code...
+
+    public bool IsSuccess
+    {
+        get { return this.Body != null && this.Body.ErrorList.Count <= 0; }
+    }
+
+    // lot of code...
+}
+```
+
 ## valores mágicos
+
+Valores mágicos são tipos nativos (string, int, double etc.) que possuem valores relevantes, usados no meio do código, muitas vezes em mais de um ponto do código.
+
+Nesses casos, é importante que esses valores sejam convertidos em constantes, para que o mesmo valor seja reaproveitado no código e nos testes de unidade. Faça isso por alguns motivos:
+
+* **Reaproveitamento**: se o valor mudar, ele será atualizado em todos os pontos do código;
+* **Legibilidade**: o valor mágico vai se tornar muito mais compreensível e legível;
+* **Documentação**: constantes devem ser documentadas.
 
 ## utilização de atributos
 
+`// TODO!`
+
 ## try catch
+
+Faça a validação de `Exceptions` específicas! Mas **sempre** insira um `try-catch` genérico, para que o erro nunca estoure no cliente. Sempre valide, mesmo que o erro seja desconhecido.
+
+Exemplo:
+
+```
+try
+{
+    // Open file
+    // Reads file
+    // Cleses file
+}
+catch (OutOfMemoryException oome) // Specific catch!
+{
+    // Error! There is insufficient memory to allocate a buffer for the returned string
+}
+catch (IOException ioe) // Specific catch!
+{
+    // Error! An I/O error occurs.
+}
+catch (Exception e) // Generic catch!
+{
+    // Unexpected and unknown error!
+    // This is the most important log.
+}
+```
 
 ## arquivos de recurso
 
+`// TODO!`
+
 ## numero de parâmetros enviados a um método
 
+`// TODO!`
+
 ## tamanho da linha
-    . Pegar do joaozinho
+    
+`// TODO!`
 
 ## sealed
+
+`// TODO!`
 
 ## Control flow
     - for
@@ -525,7 +611,11 @@ string concatBookTitles = bookTitleBuilder.ToString();
     - if, else, else-if
     - switch
 
+`// TODO!`
+
 ## LINQ
+
+`// TODO!`
 
 ## argumento de evento
 
@@ -534,9 +624,13 @@ Documentação
 
 - Documentação e comentários
 
+`// TODO!`
+
 Testes de unidade
 ==============================
     
 - Testes de unidade
+
+`// TODO!`
 
  
