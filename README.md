@@ -1,6 +1,6 @@
 # csharp-code-guideline
 
-~descrição~
+Esse documento descreve algumas boas práticas de organização e legibilidade do código para a linguagem C#. 
 
 Índice
 ==============================
@@ -387,18 +387,28 @@ Separei o corpo de um arquivo `.cs` como se fosse um XML, ou seja:
 <namespace>
     <class> 
         <constants />
+        <br />
         <static-fields />
+        <br />
         <static-properties />
+        <br />
         <interface-properties />
+        <br />
         <full-properties>
             <private-field />
             <property />
         </full-property>
+        <br />
         <properties />
+        <br />
         <constructors />
+        <br />
         <static-methods />
+        <br />
         <interface-methods />
+        <br />
         <methods />
+        <br />
     </class>
     <private-extension-methods />
 </namespace> 
