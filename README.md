@@ -636,9 +636,97 @@ Documentação
 
 Testes de unidade
 ==============================
-    
-- Testes de unidade
 
-`// TODO!`
+## Nomenclatura dos métodos
+
+Campos no nome do método:
+
+   - Classe a ser testada
+   - [ACT] Método ou propriedade a ser testad@ 
+   - [ASSERT] Resultado esperado: sempre começar com **Should** ou **Must**.
+   - [ARRANGE] Condicional: começar com **When**, **If** ou **On**.
+
+Vai ficar mais ou menos assim:
+
+```
+public void ClasseASerTestada_MetodoASerTestado_ResultadoEsperado_Condiconal ()
+{
+    // Arrange
+
+    // Act
+
+    // Assert
+}
+```
+
+Exemplos:
+
+```
+public void ReleaseEntryData_Construction_ShouldNotReturnNull() 
+{
+    // Arrange
+
+    // Act
+
+    // Assert
+}
+```
+
+```
+public void DownloadAgent_Validate_ShouldThrowException_WhenReportWasSuccessfulButSourceUrlIsEmpty
+{
+    // Arrange
+
+    // Act
+
+    // Assert
+}
+```
+
+## Nomenclatura para classes de mock
+
+### Classe de mock 
+
+Classe que herda interface a ser mockada e atribui valores aleatórios e válidos. 
+
+   - **Nomenclatura**: Mocked + NomeDaClasse.
+   
+Exemplo, quando se quer mockar a classe `IHttpClient` do ASP .NET:
+
+```
+public class MockedHttpClient : IHttpClient
+{
+    // Implementation
+}
+```
+
+### Classe Mocker
+
+São classes que mockam informações, ou seja, criam informações aleatórias e válidas para serem utilizadas em algum caso de teste.
+
+   - **Nomenclatura**: NomeDoTarget + Mocker.
+
+Exemplo: considere que um teste precisa de 10 transações para testar o que é necessário.
+
+```
+// Arrange
+Transaction[] transactions = new Transaction[10];
+for (int i = 0; i < 10; i++)
+{
+    transactions[i] = TransactionMocker.Generate();
+}
+
+// Assert ...
+```
+
+```
+public class TransactionMocker
+{
+    public static Transaction Generate ()
+    {
+        // Generate new transaction
+    }
+}
+```
 
  
