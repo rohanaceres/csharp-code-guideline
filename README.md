@@ -601,7 +601,9 @@ catch (Exception e) // Generic catch!
 
 ## sealed
 
-`// TODO!`
+Utilizar o `sealed` sempre que possível (especialmente em classes `internal`), para classes que não poderão ser herdadas de forma lógica. 
+
+:warning: _Cuidado! Uma classe pública pode ser usada e reaproveitata de fora do seu projeto, então, a não ser que seja proposital, mantenha classes públicas **sem** o `sealed`._
 
 ## Control flow
     - for
