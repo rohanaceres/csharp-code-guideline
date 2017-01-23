@@ -597,7 +597,13 @@ catch (Exception e) // Generic catch!
 
 ## tamanho da linha
     
-`// TODO!`
+Tente sempre utilizar linhas curtas, de 80 caracteres no máximo. Faça isso para:
+
+- Visualizar o código no **git bash**, sem evitar que o console "corte" o código;
+- Visualizar todo o código ao fazer um **code review**;
+- **Aumentar o número de editores** de texto em no monitor, em 2 ou 3 janelas;
+- Evitar que muita lógica seja inserida em uma única linha (**code density**);
+- Melhorar a **indentação** do código.
 
 ## sealed
 
