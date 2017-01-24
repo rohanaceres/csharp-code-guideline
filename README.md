@@ -555,10 +555,6 @@ Nesses casos, é importante que esses valores sejam convertidos em constantes, p
 * **Legibilidade**: o valor mágico vai se tornar muito mais compreensível e legível;
 * **Documentação**: constantes devem ser documentadas.
 
-## utilização de atributos
-
-`// TODO!`
-
 ## try catch
 
 Faça a validação de `Exceptions` específicas! Mas **sempre** insira um `try-catch` genérico, para que o erro nunca estoure no cliente. Sempre valide, mesmo que o erro seja desconhecido.
@@ -589,7 +585,11 @@ catch (Exception e) // Generic catch!
 
 ## arquivos de recurso
 
-`// TODO!`
+Utilizar arquivos de recursos para:
+
+   - **Mensagens que aparecerão na interface gráfica**: permite o uso (futuro ou não) de multilinguagem.
+   - Armazenar **imagens**, **ícones** da aplicação e outros **_visual assets_**.
+   - São compilados em **_satellite assemblies_**, melhorando a experiência do usuário (linguagem de acordo com a cultura do computador) e podem ser substituídos sem ter que **recompilar** o projeto.
 
 ## numero de parâmetros enviados a um método
 
