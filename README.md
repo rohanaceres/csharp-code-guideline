@@ -593,7 +593,14 @@ Utilizar arquivos de recursos para:
 
 ## numero de parâmetros enviados a um método
 
-`// TODO!`
+Evitar ter métodos e construtores recebendo mais que 4 parâmetros. Nesses casos:
+
+   - Avaliar se os parâmetros têm algo em comum (provavelmente terão!);
+   - Criar classes de entrada de dados (_entry data classes_) com as propriedades necessárias.
+
+   > _Functions should have a small number of arguments. No argument is best, followed by one, two, and three. 
+   More than three is very questionable and should be avoided with prejudice. 
+   [- Robert C. Martin.](http://www.informit.com/articles/article.aspx?p=1375308)_
 
 ## tamanho da linha
     
