@@ -637,9 +637,85 @@ Utilizar o `sealed` sempre que possível (especialmente em classes `internal`), 
 Documentação
 ==============================
 
-- Documentação e comentários
+Alguns tipos de documentação devem ser feitas, como:
 
-`// TODO!`
+### Documentação do projeto
+
+Documentação de **utilização**, em uma linguagem que o público-alvo precisa 
+entender. É positivo usar imagens (como tutoriais), fluxogramas ou trechos
+de código para deixar mais claro o funcionamento do software ou _lib_.
+
+:warning: Se o projeto for público, _open source_ ou aberto para um grupo 
+específico, mas de outra nacionalidade, a documentação terá que ser 
+**em inglês**. Fora essas situações, pode ser feita na sua linguagel nativa 
+ou fluente.
+
+### Documentação do código
+
+Documentação dos métodos, propriedades, atributos, constantes, classes e 
+interfaces. É interessante conhecer as **_tags_ de documentação**, descritas 
+[aqui](https://msdn.microsoft.com/en-us/library/5ast78ax.aspx) pela Microsoft.
+
+:warning: Essa documentação será lida sempre que alguém estiver consumindo o código, então
+sempre usar acentuação, capitalização e semântica corretamente. 
+**Deve ser feita em inglês.**
+
+#### Cuidado!
+
+Não documente de forma viciada. Exemplo do que você **não** deve fazer:
+
+```
+/// <summary>
+/// Does something.
+/// </summary>
+/// <param name="appName">Application name.</param>
+public void DoSomething(string appName)
+{
+    // Does something...
+}
+```
+
+Não seja essa pessoa. Seja essa:
+
+```
+/// <summary>
+/// Produces something accordingly to the argument received.
+/// Validates the result and, if arguments are correct, does something.
+/// </summary>
+/// <param name="appName">
+///     Application name, under UTF-8 and under <see cref="AppSettings.AppNameRegexPattern."/>.
+/// </param>
+public void DoSomething(string appName)
+{
+    // Does something...
+}
+```
+
+### Documentação dos métodos
+
+Documentação interna dos métodos, `getters` e `setters`. Devem descrever a
+ação que será executava na linha abaixo.
+
+É útil para comentar informações que só os contribuintes do projeto precisam 
+saber, como o porquê de um possível valor mágico, explicação para uma quebra 
+de fluxo específica e outros detalhes pertinentes apenas internamente.
+
+Exemplo:
+
+```
+public SomethingResult DoSomething()
+{
+    // Do first action:
+
+    // Validates something:
+
+    // Map and return the result:
+}
+```
+
+_Sempre com linhas em branco acima do comentário, para deixar claro as etapas do método._
+
+:warning: Pode ser feita na linguagem nativa ou fluente do time.
 
 Testes de unidade
 ==============================
